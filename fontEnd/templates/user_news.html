@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>
+            news
+        </title>
+
+        {% load static %}
+        <script type="text/javascript" src="{% static 'js/dom_mani.js' %}">
+        </script>
+        <style>
+            .bdr{
+                height: 500 px;
+                background-color: silver;
+                width: 500px;
+                margin: 0px auto;
+                text-align: center;
+            }
+        </style>
+        <!-- <link rel="stylesheet" type="text/css" href="{% static 'styles/temp.css' %}">
+        <script type="text/javascript">
+            document.write("<h1>hello world</h1>");
+        </script> --> 
+        {%  load static %}
+        <link href="{% static 'styles/bootstrap.min.css' %}" rel="stylesheet" type="text/css" media="all" />
+   
+    </head>
+    <body>
+            <h1>{{cat}}</h1>
+       <br><br> 
+       <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+            {% for item in h %}
+            {% comment %} <div class="container bdr">
+              <img src={{item.2}} style="object-fit: cover;float: left;width: 100px;height: 110px;padding-left:0mm;">
+              <h3> 
+            {{item.0}}
+            <br></h3><p>
+            {{item.1}}
+            
+            </p>
+        </div> {% endcomment %}
+        <div class="card mb-3" style="max-width: 1280px;padding-left:50mm;text-align: center;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      {% comment %} <img src={{item.2}} class="card-img" alt="..."> {% endcomment %}
+      <img src={{item.2}} style="object-fit: cover;float: left;width: 300px;height: 300px;padding-left:00mm;">
+
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{item.0}}</h5>
+        <p class="card-text">{{item.1}}</p>
+        {% comment %} <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</div>
+        {% endfor %}
+          </div>
+          <script src="js/jquery.js"></script>
+          <script src="js/bootstrap.min.js"></script>
+       </body>
+</html>
